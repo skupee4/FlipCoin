@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Yazı Tura Oyunu</title>
+</head>
+<body>
+    <h1>Yazı Tura Oyunu</h1>
+    <button id="turaBtn">Atıştır!</button>
+    <p id="sonuc"></p>
+
+    <script>
+        document.getElementById("turaBtn").onclick = function() {
+            let sonuc = Math.random() < 0.5 ? "Yazı" : "Tura";
+            document.getElementById("sonuc").innerText = "Sonuç: " + sonuc;
+        };
+    </script>
+</body>
+</html>
