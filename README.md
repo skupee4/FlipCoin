@@ -1,1 +1,32 @@
-# FlipCoin
+# <!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<title>Fantom Cüzdan Bağla</title>
+</head>
+<body>
+<h2>Fantom Cüzdan Bağlantısı</h2>
+<button id="connectButton">Cüzdan Bağla</button>
+<p id="walletAddress">Henüz bağlanılmadı.</p>
+
+<script>
+  const connectButton = document.getElementById('connectButton');
+  const walletAddress = document.getElementById('walletAddress');
+
+  connectButton.onclick = async () => {
+    if (window.ethereum) {
+      try {
+        // Kullanıcıdan cüzdan bağlantısı iste
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        walletAddress.innerText = "Cüzdan Adresiniz: " + accounts[0];
+      } catch (error) {
+        walletAddress.innerText = "Bağlanma iptal edildi veya hata oluştu.";
+        console.error(error);
+      }
+    } else {
+      walletAddress.innerText = "MetaMask ya da uyumlu cüzdan bulunamadı.";
+    }
+  }
+</script>
+</body>
+</html>
