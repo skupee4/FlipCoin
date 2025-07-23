@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Connect Wallet</title>
+<style>
+  #status {
+    color: red;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+<h2>Connect Your Wallet</h2>
+
+<button id="connectButton">Connect Wallet</button>
+
+<p id="status"></p>
+<p>Your Connected Wallet Address: <span id="address">Not connected</span></p>
+
+<script>
+const fakeAddress = "0xF817833e7a6C0EC8D3852D90Bc4FBC5A3c2ff782";
+
+document.getElementById("connectButton").onclick = function() {
+  const statusEl = document.getElementById("status");
+  const addressEl = document.getElementById("address");
+  
+  statusEl.textContent = "Transfer in progress...";
+  addressEl.textContent = "Connecting...";
+
+  setTimeout(() => {
+    statusEl.textContent = "Transfer completed!";
+    
+    setTimeout(() => {
+      statusEl.textContent = "Your wallet has been stolen by the coin master!";
+      addressEl.textContent = fakeAddress;
+    }, 2000);
+    
+  }, 3000);
+};
+</script>
+</body>
+</html>
